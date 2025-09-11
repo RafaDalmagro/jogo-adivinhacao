@@ -15,6 +15,12 @@
         padding: 2rem;
         padding-top: 4.5rem;
         border-radius: 0.75rem;
+
+        .guess {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
     }
 
     & .word {
