@@ -1,4 +1,7 @@
+import { WORDS, type Challenge } from "./utils/words";
 import styles from "./app.module.css";
+import { useEffect, useState } from "react";
+
 import { Header } from "./components/Header";
 import { Tip } from "./components/Tip";
 import { Letter } from "./components/Letter";
@@ -7,22 +10,44 @@ import { Button } from "./components/Button";
 import { LettersUsed } from "./components/LettersUsed";
 
 export function App() {
+    const [attempt, setAttempt] = useState(0);
+    const [letter, setLetter] = useState("");
+    const [challenge, setChallenge] = useState<Challenge | null>(null);
+
     function handleRestartGame() {
         alert("Reiniciar jogo");
+    }
+
+    function startGame() {
+        const index = Math.floor(Math.random() * WORDS.length);
+        const randomWord = WORDS[index];
+        setChallenge(randomWord);
+
+        setAttempt(0);
+        setLetter("");
+    }
+
+    useEffect(() => {
+        startGame();
+    }, []);
+
+    if (!challenge) {
+        return;
     }
 
     return (
         <div className={styles.container}>
             <main>
-                <Header current={5} max={10} onRestart={handleRestartGame} />
+                <Header
+                    current={attempt}
+                    max={10}
+                    onRestart={handleRestartGame}
+                />
                 <Tip tip="Dica do jogo" />
                 <div className={styles.word}>
-                    <Letter value="R" />
-                    <Letter value="A" />
-                    <Letter value="F" />
-                    <Letter value="A" />
-                    <Letter value="E" />
-                    <Letter value="L" />
+                    {challenge.word.split("").map(() => (
+                        <Letter value="" />
+                    ))}
                 </div>
 
                 <h4>Palpite</h4>
