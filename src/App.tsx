@@ -32,6 +32,27 @@ export function App() {
         setLetter("");
     }
 
+    function handleConfirm() {
+        if (!challenge) {
+            return;
+        }
+
+        if (!letter.trim()) {
+            return alert("Informe uma letra");
+        }
+
+        const value = letter.toUpperCase();
+        const exist = lettersUsed.find((l) => l.value.toUpperCase() === value);
+
+        if (exist) {
+            return alert("Você já tentou essa letra");
+        }
+
+        setLettersUsed((prev) => [...prev, { value, correct: false }]);
+
+        setLetter("");
+    }
+
     useEffect(() => {
         startGame();
     }, []);
@@ -58,8 +79,14 @@ export function App() {
                 <h4>Palpite</h4>
 
                 <div className={styles.guess}>
-                    <Input autoFocus maxLength={1} placeholder="?" />
-                    <Button title="Confirmar" />
+                    <Input
+                        autoFocus
+                        maxLength={1}
+                        placeholder="?"
+                        value={letter}
+                        onChange={(e) => setLetter(e.target.value)}
+                    />
+                    <Button title="Confirmar" onClick={handleConfirm} />
                 </div>
 
                 <LettersUsed data={lettersUsed} />
