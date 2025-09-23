@@ -63,7 +63,6 @@ export function App() {
             .filter((l) => l === value).length;
 
         const correct = hits > 0;
-        const currentScore = hits + score;
 
         setLettersUsed((prev) => [...prev, { value, correct }]);
 
