@@ -1,12 +1,12 @@
 # 🎲 Jogo de Adivinhação
 
-Um jogo interativo de adivinhação, desenvolvido em React, onde o usuário deve tentar adivinhar um número secreto gerado aleatoriamente pelo sistema. O projeto foi criado para praticar conceitos de React, hooks, estados e componentes funcionais, além de proporcionar entretenimento e aprendizado.
+Um jogo interativo de adivinhação, desenvolvido em React, onde o usuário deve tentar adivinhar a palavra gerado aleatoriamente pelo sistema. O projeto foi criado para praticar conceitos de React, hooks, estados e componentes funcionais, além de proporcionar entretenimento e aprendizado.
 
 ---
 
 ## 🕹️ Descrição
 
-Neste jogo, o usuário é desafiado a adivinhar o número sorteado pelo sistema dentro de determinado intervalo. O jogo fornece dicas como "maior" ou "menor" para ajudar o jogador a encontrar a resposta correta. Os erros e acertos são exibidos, incentivando o jogador a repetir as tentativas até o sucesso.
+Neste jogo, o usuário é desafiado a adivinhar o número sorteado pelo sistema dentro de determinado intervalo. Os erros e acertos são exibidos, incentivando o jogador a repetir as tentativas até o sucesso.
 
 ---
 
